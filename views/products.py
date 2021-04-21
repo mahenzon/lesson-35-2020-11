@@ -46,3 +46,10 @@ def product_add():
 
     PRODUCTS[next(next_index)] = request.form.get("product-name")
     return redirect(url_for("product_app.list"))
+
+
+@product_app.route("/reset/", methods=["DELETE"], endpoint="reset")
+def reset_products():
+    PRODUCTS.clear()
+    PRODUCTS.update(get_default_products())
+    return {"ok": True}
