@@ -1,6 +1,13 @@
 name: Run tests
 
-on: [push, pull_request]
+on:
+  push:
+    # Sequence of patterns matched against refs/heads
+    branches:
+      # Push events on main branch
+      - master
+  pull_request:
+
 jobs:
   unit-tests:
     runs-on: ubuntu-latest

@@ -7,6 +7,8 @@ app = Flask(__name__)
 
 app.register_blueprint(product_app, url_prefix="/products")
 
+app.config.update(SERVER_NAME="shop_app")
+
 
 @app.route("/")
 def hello_index():
